@@ -1,10 +1,17 @@
 package com.doricovix.utif.phpdroid;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,9 +21,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://192.168.100.12/trynerror/php_girdroid/script.php?id="+id)
+                        .url("http://192.168.100.12/trynerror/php_gridroid/script.php?id="+id)
                         .build();
                 try {
 
@@ -89,5 +93,22 @@ public class MainActivity extends AppCompatActivity {
         };
 
         task.execute(id);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_add:
+                startActivity(new Intent(this, SaveActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

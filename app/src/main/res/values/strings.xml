@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Php Droid</string>
+    <string name="title_activity_save">SaveActivity</string>
+    <string name="description">Description</string>
+    <string name="link">http://192.168.100.12/trynerror/php_girdroid/images/4.jpg</string>
+    <string name="img">Image link</string>
+    <string name="success_msg">Sukses menambahkan:</string>
 </resources>
